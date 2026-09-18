@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#0F141A" />
+    <title>ScrollGuard — offline</title>
+    <style>
+      body {
+        margin: 0;
+        min-height: 100vh;
+        display: grid;
+        place-items: center;
+        background-color: #0f141a;
+        background-image:
+          radial-gradient(40rem 30rem at 10% -10%, rgba(124, 107, 240, 0.22), transparent 62%),
+          radial-gradient(36rem 28rem at 105% 0%, rgba(167, 139, 250, 0.14), transparent 58%),
+          linear-gradient(180deg, #12161f 0%, #10151c 52%, #0f141a 100%);
+        color: #e8edf2;
+        font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      }
+      .card {
+        text-align: center;
+        padding: 2.5rem;
+        max-width: 26rem;
+      }
+      .logo {
+        width: 56px;
+        height: 56px;
+        border-radius: 18px;
+        background: linear-gradient(135deg, #8379e8, #5b47d9);
+        display: grid;
+        place-items: center;
+        margin: 0 auto 1rem;
+        color: #fff;
+        font-weight: 800;
+        font-size: 1.4rem;
+      }
+      h1 { margin: 0 0 0.5rem; font-size: 1.25rem; }
+      p { color: #a3aebb; line-height: 1.6; margin: 0 0 1.5rem; }
+      button {
+        font: inherit;
+        font-weight: 600;
+        background: #6d5ae6;
+        color: #fff;
+        border: 0;
+        padding: 0.75rem 1.5rem;
+        border-radius: 999px;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <main class="card">
+      <div class="logo">S</div>
+      <h1>You're offline right now</h1>
+      <p>ScrollGuard will sync automatically the moment you're back online. Your attention data stays safe on this device.</p>
+      <button onclick="location.reload()">Try again</button>
+    </main>
+  </body>
+</html>

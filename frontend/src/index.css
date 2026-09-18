@@ -1,0 +1,115 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ------------------------------------------------------------------ */
+/* ScrollGuard design system base                                      */
+/* ------------------------------------------------------------------ */
+
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply text-ink font-sans antialiased;
+    -webkit-tap-highlight-color: transparent;
+
+    /* Modern layered wash: deep slate base warmed by periwinkle glows. */
+    background-color: #0f141a;
+    background-image:
+      radial-gradient(56rem 42rem at 8% -8%, rgba(124, 107, 240, 0.22), transparent 62%),
+      radial-gradient(52rem 40rem at 102% -2%, rgba(167, 139, 250, 0.14), transparent 58%),
+      radial-gradient(46rem 44rem at 50% 118%, rgba(56, 66, 120, 0.22), transparent 60%),
+      linear-gradient(180deg, #12161f 0%, #10151c 52%, #0f141a 100%);
+    background-attachment: fixed;
+  }
+
+  ::selection {
+    @apply bg-brand-200 text-brand-900;
+  }
+
+  /* Accessible focus indicators (keyboard only). */
+  :focus-visible {
+    @apply outline-none ring-2 ring-brand-500 ring-offset-2 ring-offset-surface;
+  }
+}
+
+@layer components {
+  .card {
+    @apply bg-surface-card rounded-xl2 p-5 shadow-card border border-ink/[0.04];
+  }
+
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-full font-semibold transition-all duration-200
+      focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:ring-offset-2 focus-visible:ring-offset-surface
+      disabled:opacity-50 disabled:cursor-not-allowed disabled:pointer-events-none select-none;
+  }
+  .btn-primary {
+    @apply btn bg-gradient-to-b from-brand-500 to-brand-600 text-white px-5 py-2.5
+      hover:from-brand-400 hover:to-brand-600 hover:shadow-[0_6px_18px_rgba(119,101,240,0.35)] active:scale-[0.98];
+  }
+  .btn-secondary {
+    @apply btn bg-surface-card text-ink border border-ink/15 px-5 py-2.5 hover:border-brand-300 hover:text-brand-300 active:scale-[0.98];
+  }
+  .btn-ghost {
+    @apply btn text-brand-700 hover:bg-brand-50 px-4 py-2;
+  }
+  .btn-danger {
+    @apply btn bg-transparent text-coral border border-coral/40 px-5 py-2.5 hover:bg-coral-soft;
+  }
+
+  .input {
+    @apply w-full rounded-xl border border-ink/15 bg-surface-card px-4 py-2.5 text-ink placeholder:text-ink-faint
+      focus:border-brand-400 focus:ring-2 focus:ring-brand-400/30 outline-none transition-shadow;
+  }
+
+  .label {
+    @apply block text-sm font-medium text-ink-soft mb-1.5;
+  }
+
+  .chip {
+    @apply inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-xs font-semibold;
+  }
+
+  /* Respect users who prefer reduced motion. */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+
+  /* Safe areas for iOS PWA notch/home-bar. */
+  .safe-top {
+    padding-top: env(safe-area-inset-top);
+  }
+  .safe-bottom {
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+}
+
+/* Hide scrollbar for horizontal chip rows while keeping them scrollable. */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Soft gradient text for hero headings — periwinkle into a violet tail. */
+.text-gradient {
+  @apply bg-clip-text text-transparent bg-gradient-to-r from-brand-800 via-brand-500 to-violet-400;
+}
+
+/* Thin scrollbar styling for the scroll-intent chat area. */
+.scroll-gentle {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(109, 90, 230, 0.35) transparent;
+}

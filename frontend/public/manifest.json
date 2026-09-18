@@ -1,0 +1,19 @@
+{
+  "name": "ScrollGuard",
+  "short_name": "ScrollGuard",
+  "description": "Scroll less. Live more. Understand your social-media habits, interrupt endless scrolling, and take back control of your attention.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#0F141A",
+  "theme_color": "#6D5AE6",
+  "lang": "en",
+  "orientation": "portrait-primary",
+  "categories": ["productivity", "health", "lifestyle"],
+  "icons": [
+    { "src": "./icons/icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "./icons/icon-512.png", "sizes": "512x512", "type": "image/png" },
+    { "src": "./icons/maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" },
+    { "src": "./icons/icon-72.png", "sizes": "72x72", "type": "image/png" }
+  ]
+}

@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="theme-color" content="#0F141A" />
+    <meta name="description" content="ScrollGuard — an AI-powered digital-wellbeing app that helps you scroll less and live more. Scroll less. Live more." />
+    <link rel="manifest" href="./manifest.json" />
+    <link rel="icon" type="image/x-icon" href="./icons/favicon.png" />
+    <link rel="apple-touch-icon" href="./icons/apple-touch-icon.png" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <title>ScrollGuard — Scroll less. Live more.</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <script>
+      // Reduced-motion users should never see heavy animation.
+      window.__PREFRERS_REDUCED_MOTION__ = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <noscript>ScrollGuard needs JavaScript enabled. Scroll less, live more.</noscript>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>
