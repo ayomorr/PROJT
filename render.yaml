@@ -1,0 +1,42 @@
+# Render Blueprint for ScrollGuard.
+# One web service: Express serves the API (/api) AND the built frontend (frontend/dist).
+# Import this in the Render dashboard: New -> Blueprint -> this repo.
+services:
+  - type: web
+    name: scrollguard
+    runtime: node
+    plan: free
+    rootDir: .
+    region: oregon # optional: choose the one closest to your users
+    buildCommand: npm run install:all && npm run build
+    startCommand: npm start
+    healthCheckPath: /api/health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      # Render injects PORT automatically; do NOT set it.
+      - key: VITE_API_URL
+        value: /api
+      - key: VITE_DEMO_MODE
+        value: "false"
+      - key: JWT_SECRET
+        sync: false # set a long random secret in the dashboard
+      - key: FRONTEND_URL
+        value: https://YOUR-APP.onrender.com # replace with the service URL once it's created
+      - key: ADMIN_BOOTSTRAP
+        value: "true"
+      - key: ADMIN_EMAIL
+        value: admin@scrollguard.app
+      - key: ADMIN_PASSWORD
+        sync: false # set a strong admin password in the dashboard
+      - key: DEMO_USER_EMAIL
+        value: demo@scrollguard.app
+      - key: DEMO_USER_PASSWORD
+        value: demo1234
+      # SQLite lives on the persistent disk so data survives restarts/redeploys.
+      - key: DATABASE_URL
+        value: /data/scrollguard.db
+    disk:
+      name: scrollguard-data
+      mountPath: /data
+      sizeGB: 1
